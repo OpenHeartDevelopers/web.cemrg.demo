@@ -1,0 +1,74 @@
+.level3-container {
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .button-row p {
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .selected {
+    background-color: #3498db; /* Selected button color */
+    color: #ffffff; /* Text color for selected button */
+  }
+  
+  .simulate-button {
+    padding: 15px;
+    font-size: 18px;
+    background-color: #2ecc71; /* Simulate button color */
+    color: #ffffff; /* Text color for simulate button */
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+  
+  .simulate-button:disabled {
+    background-color: #95a5a6; /* Disabled button color */
+    cursor: not-allowed;
+  }
+  
+
+  .slider-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Add margin for better spacing between rows */
+  }
+  
+  .slider-label {
+    width: 100px; /* Adjust the width of the label as needed */
+    margin-right: 10px; /* Add margin between the label and the slider */
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .rc-slider {
+    width: 200px; /* Adjust the width of the slider as needed */
+  }
+  
+  .rc-slider-handle {
+    /* Add styling for the slider handle if needed */
+  }
+  
+  .rc-slider-track {
+    /* Add styling for the slider track if needed */
+  }
