@@ -36,7 +36,7 @@ export const Level1 = () => {
   };
 
   return (
-    <div className="level1-container">
+    <div className="level-container">
       <h2>Level 1</h2>
       {/* Row 1: Stiffness */}
       <div className="slider-row">
@@ -52,6 +52,83 @@ export const Level1 = () => {
           />
         </div>
       </div>
+
+      {/* Simulate Button */}
+      <button className="simulate-button" onClick={simulate} disabled={isSimulateDisabled}>
+        Simulate!
+      </button>
+    </div>
+  );
+};
+
+export const Level2 = () => {
+  const [selectedStiffness, setSelectedStiffness] = useState('');
+  const [selectedPressure, setSelectedPressure] = useState('');
+  const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
+
+  useEffect(() => {
+    // Check if any slider has the value "" after Simulate button activation
+    const anySliderEmpty = selectedStiffness === '' || selectedPressure === '' ;
+
+    // Update the disabled state based on the condition
+    setIsSimulateDisabled(anySliderEmpty);
+  }, [selectedStiffness, selectedPressure]);
+
+  const handleSliderChange = (row, value) => {
+    switch (row) {
+      case 'stiffness':
+        setSelectedStiffness(value);
+        break;
+      case 'pressure':
+        setSelectedPressure(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const simulate = () => {
+    if (selectedStiffness !== '' && selectedPressure !== '') {
+      // Perform simulation logic for Level 2
+      console.log('Simulation for Level 2');
+    } else {
+      alert('Please select values other than "" on each slider before simulating.');
+    }
+  };
+
+  return (
+    <div className="level-container">
+      <h2>Level 2</h2>
+      {/* Row 1: Stiffness */}
+      <div className="slider-row">
+        <div className="slider-label">Stiffness</div>
+        <div className="slider-wrapper">
+          <Slider
+            min={0}
+            max={5}
+            step={1}
+            marks={{ 0: '', 1: '1', 2: '2', 3: '3' }}
+            value={selectedStiffness}
+            onChange={(value) => handleSliderChange('stiffness', value)}
+          />
+        </div>
+      </div>
+
+      {/* Row 2: Pressure */}
+      <div className="slider-row">
+        <div className="slider-label">Pressure</div>
+        <div className="slider-wrapper">
+          <Slider
+            min={0}
+            max={5}
+            step={1}
+            marks={{ 0: '', 1: '1', 2: '2', 3: '3'}}
+            value={selectedPressure}
+            onChange={(value) => handleSliderChange('pressure', value)}
+          />
+        </div>
+      </div>
+
 
       {/* Simulate Button */}
       <button className="simulate-button" onClick={simulate} disabled={isSimulateDisabled}>
@@ -101,7 +178,7 @@ export const Level3 = () => {
   };
 
   return (
-    <div className="level3-container">
+    <div className="level-container">
       <h2>Level 3</h2>
       {/* Row 1: Stiffness */}
       <div className="slider-row">

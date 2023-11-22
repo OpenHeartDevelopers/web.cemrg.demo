@@ -1,19 +1,10 @@
-.level3-container {
+.level-container {
     height: 100vh; /* Set the height to 100% of the viewport height */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-
-  .level1-container {
-    height: 100vh; /* Set the height to 100% of the viewport height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
   .button-row {
     display: flex;
     align-items: center;
@@ -72,6 +63,7 @@
   .rc-slider {
     width: 400px; /* Adjust the width of the slider as needed */
   }
+
   
 /* Styles for the handle in the default state */
 .rc-slider-handle {
