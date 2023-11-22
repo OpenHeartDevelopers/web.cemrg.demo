@@ -3,7 +3,7 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './styles.css';
 
-const Level3 = () => {
+const Level1 = () => {
   const [selectedStiffness, setSelectedStiffness] = useState('');
   const [selectedPressure, setSelectedPressure] = useState('');
   const [selectedResistance, setSelectedResistance] = useState('');
