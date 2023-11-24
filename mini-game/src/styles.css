@@ -1,70 +1,69 @@
 .level-container {
-    height: 100vh; /* Set the height to 100% of the viewport height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .button-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  
-  .button-row p {
-    margin-right: 10px;
-  }
-  
-  button {
-    padding: 10px;
-    margin-right: 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .selected {
-    background-color: #3498db; /* Selected button color */
-    color: #ffffff; /* Text color for selected button */
-  }
-  
-  .simulate-button {
-    padding: 15px;
-    font-size: 18px;
-    background-color: #2ecc71; /* Simulate button color */
-    color: #ffffff; /* Text color for simulate button */
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
-    margin-top: 15px;
-  }
-  
-  .simulate-button:disabled {
-    background-color: #95a5a6; /* Disabled button color */
-    cursor: not-allowed;
-  }
-  
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-  .slider-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px; /* Add margin for better spacing between rows */
-  }
-  
-  .slider-label {
-    width: 100px; /* Adjust the width of the label as needed */
-    margin-right: 10px; /* Add margin between the label and the slider */
-  }
-  
-  .slider-wrapper {
-    display: flex;
-    align-items: center;
-  }
-  
-  .rc-slider {
-    width: 400px; /* Adjust the width of the slider as needed */
-  }
+.button-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
-  
+.button-row p {
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.simulate-button {
+  padding: 15px;
+  font-size: 18px;
+  background-color: #2ecc71;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.simulate-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.slider-label {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.rc-slider {
+  width: var(--slider-width, 400px);
+}
+
 /* Styles for the handle in the default state */
 .rc-slider-handle {
   border: 2px solid #3498db;
@@ -72,18 +71,17 @@
   width: 12px;
   height: 12px;
   cursor: pointer;
-  margin-top: -5px; /* Adjust the margin-top to align the handle with the circles */
+  margin-top: -5px;
 }
-
 
 /* Additional styles for the handle when it is focused */
 .rc-slider-handle:focus {
   box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.4);
 }
-  
+
 /* Remove the styles that are dependent on focus */
 .rc-slider-handle:focus {
-  box-shadow: none; /* Remove focus-related styles */
+  box-shadow: none;
 }
 
 /* Styles for the handle in the active state (when clicked) */
@@ -95,18 +93,17 @@
   box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.4);
 }
 
-   */
-  .rc-slider-dot {
-    border: 2px solid #3498db; /* Change the color if needed */
-    background-color: #fff; /* Change the color if needed */
-    width: 12px; /* Set the width of the dot */
-    height: 12px; /* Set the height of the dot */
-    margin-left: -6px; /* Center the dot on the slider */
-    margin-top: -5px; /* Center the dot on the slider */
-    cursor: pointer;
-  }
-  
-  .rc-slider-dot-active {
-    border-color: #3498db; /* Change the color if needed */
-    background-color: #3498db; /* Change the color if needed */
-  }
+.rc-slider-dot {
+  border: 2px solid #3498db;
+  background-color: #fff;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+.rc-slider-dot-active {
+  border-color: #3498db;
+  background-color: #3498db;
+}
