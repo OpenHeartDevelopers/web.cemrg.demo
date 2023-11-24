@@ -44,7 +44,7 @@ export const Level1 = () => {
         <div className="slider-wrapper">
           <Slider
             min={0}
-            max={5}
+            max={3}
             step={1}
             marks={{ 0: '', 1: 'Soft', 2: 'Medium', 3: 'Stiff' }}
             value={selectedStiffness}
@@ -106,7 +106,7 @@ export const Level2 = () => {
         <div className="slider-wrapper">
           <Slider
             min={0}
-            max={5}
+            max={3}
             step={1}
             marks={{ 0: '', 1: '1', 2: '2', 3: '3' }}
             value={selectedStiffness}
@@ -121,7 +121,7 @@ export const Level2 = () => {
         <div className="slider-wrapper">
           <Slider
             min={0}
-            max={5}
+            max={3}
             step={1}
             marks={{ 0: '', 1: '1', 2: '2', 3: '3' }}
             value={selectedPressure}
