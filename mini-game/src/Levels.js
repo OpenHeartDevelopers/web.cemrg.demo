@@ -2,7 +2,23 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './styles.css';
+import videoLookupTable from './videoLookupTable.json';
 
+
+const createSimulateFunction = (selectedStiffness, selectedPressure, selectedResistance) => {
+  return () => {
+    const values = [selectedStiffness, selectedPressure, selectedResistance].filter(Boolean);
+    if (values.length === 3) {
+      const key = values.join('');
+      // const videoId = 'dQw4w9WgXcQ'; // Replace this with your own logic
+      const videoId = videoLookupTable[key];
+      const embeddedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1`;
+      window.open(embeddedUrl, '_blank');
+    } else {
+      alert('Please select a correct value from the slider!');
+    }
+  };
+};
 export const Level1 = () => {
   const [selectedStiffness, setSelectedStiffness] = useState('');
   const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
@@ -25,15 +41,7 @@ export const Level1 = () => {
     }
   };
 
-  const simulate = () => {
-    if (selectedStiffness !== '') {
-      const videoId = 'dQw4w9WgXcQ';
-      const embeddedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1`;
-      window.open(embeddedUrl, '_blank');
-    } else {
-      alert('Please select values other than "" on each slider before simulating.');
-    }
-  };
+  const simulate = createSimulateFunction(selectedStiffness, '0', '0');
 
   return (
     <div className="level-container">
@@ -87,15 +95,7 @@ export const Level2 = () => {
     }
   };
 
-  const simulate = () => {
-    if (selectedStiffness !== '' && selectedPressure !== '' ) {
-      const videoId = 'dQw4w9WgXcQ';
-      const embeddedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1`;
-      window.open(embeddedUrl, '_blank');
-    } else {
-      alert('Please select values other than "" on each slider before simulating.');
-    }
-  };
+  const simulate = createSimulateFunction(selectedStiffness, selectedPressure, '0');
 
   return (
     <div className="level-container">
@@ -168,15 +168,7 @@ export const Level3 = () => {
     }
   };
 
-  const simulate = () => {
-    if (selectedStiffness !== '' && selectedPressure !== '' && selectedResistance !== '') {
-      const videoId = 'dQw4w9WgXcQ';
-      const embeddedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1`;
-      window.open(embeddedUrl, '_blank');
-    } else {
-      alert('Please select values other than "" on each slider before simulating.');
-    }
-  };
+  const simulate = createSimulateFunction(selectedStiffness, selectedPressure, selectedResistance);
 
   return (
     <div className="level-container">
