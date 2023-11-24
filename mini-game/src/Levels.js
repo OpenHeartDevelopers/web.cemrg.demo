@@ -1,4 +1,3 @@
-// Levels.js
 import React, { useState, useEffect } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
@@ -9,7 +8,7 @@ export const Level1 = () => {
   const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
 
   useEffect(() => {
-    // Check if the slider has the value "" after Simulate button activation
+    // Check if the slider has the value "" after the Simulate button activation
     const sliderEmpty = selectedStiffness === '';
 
     // Update the disabled state based on the condition
@@ -28,10 +27,11 @@ export const Level1 = () => {
 
   const simulate = () => {
     if (selectedStiffness !== '') {
-      // Perform simulation logic for Level 1
-      console.log('Simulation for Level 1');
+      const videoId = 'dQw4w9WgXcQ';
+      const embeddedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1`;
+      window.open(embeddedUrl, '_blank');
     } else {
-      alert('Please select a value other than "" on the slider before simulating.');
+      alert('Please select values other than "" on each slider before simulating.');
     }
   };
 
@@ -67,8 +67,8 @@ export const Level2 = () => {
   const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
 
   useEffect(() => {
-    // Check if any slider has the value "" after Simulate button activation
-    const anySliderEmpty = selectedStiffness === '' || selectedPressure === '' ;
+    // Check if any slider has the value "" after the Simulate button activation
+    const anySliderEmpty = selectedStiffness === '' || selectedPressure === '';
 
     // Update the disabled state based on the condition
     setIsSimulateDisabled(anySliderEmpty);
@@ -88,9 +88,10 @@ export const Level2 = () => {
   };
 
   const simulate = () => {
-    if (selectedStiffness !== '' && selectedPressure !== '') {
-      // Perform simulation logic for Level 2
-      console.log('Simulation for Level 2');
+    if (selectedStiffness !== '' && selectedPressure !== '' ) {
+      const videoId = 'dQw4w9WgXcQ';
+      const embeddedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1`;
+      window.open(embeddedUrl, '_blank');
     } else {
       alert('Please select values other than "" on each slider before simulating.');
     }
@@ -122,13 +123,12 @@ export const Level2 = () => {
             min={0}
             max={5}
             step={1}
-            marks={{ 0: '', 1: '1', 2: '2', 3: '3'}}
+            marks={{ 0: '', 1: '1', 2: '2', 3: '3' }}
             value={selectedPressure}
             onChange={(value) => handleSliderChange('pressure', value)}
           />
         </div>
       </div>
-
 
       {/* Simulate Button */}
       <button className="simulate-button" onClick={simulate} disabled={isSimulateDisabled}>
@@ -145,7 +145,7 @@ export const Level3 = () => {
   const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
 
   useEffect(() => {
-    // Check if any slider has the value "" after Simulate button activation
+    // Check if any slider has the value "" after the Simulate button activation
     const anySliderEmpty = selectedStiffness === '' || selectedPressure === '' || selectedResistance === '';
 
     // Update the disabled state based on the condition
@@ -170,8 +170,9 @@ export const Level3 = () => {
 
   const simulate = () => {
     if (selectedStiffness !== '' && selectedPressure !== '' && selectedResistance !== '') {
-      // Perform simulation logic for Level 3
-      console.log('Simulation for Level 3');
+      const videoId = 'dQw4w9WgXcQ';
+      const embeddedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1`;
+      window.open(embeddedUrl, '_blank');
     } else {
       alert('Please select values other than "" on each slider before simulating.');
     }
