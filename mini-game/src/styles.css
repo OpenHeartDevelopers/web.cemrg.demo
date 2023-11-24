@@ -72,6 +72,7 @@ button {
   height: 12px;
   cursor: pointer;
   margin-top: -5px;
+  margin-left: -6px; /* Adjust the margin to center the handle on the mark */
 }
 
 /* Additional styles for the handle when it is focused */
