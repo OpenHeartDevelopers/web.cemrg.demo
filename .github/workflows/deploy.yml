@@ -20,16 +20,14 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        cd mini-game
         npm ci
 
     - name: Build
       run: |
-        cd mini-game
         npm run build
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./mini-game/build
+        publish_dir: ./build
