@@ -4,7 +4,15 @@ import 'rc-slider/assets/index.css';
 import './styles.css';
 import videoLookupTable from './videoLookupTable.json';
 
+const YOUTUBE_URL = 'https://www.youtube.com/embed';
 
+/**
+ * Creates a function that plays a video based on selected parameters.
+ * @param {number} selectedStiffness - The selected stiffness value.
+ * @param {number} selectedPressure - The selected pressure value.
+ * @param {number} selectedResistance - The selected resistance value.
+ * @returns {Function} The simulate function.
+ */
 const createSimulateFunction = (selectedStiffness, selectedPressure, selectedResistance) => {
   return () => {
     const values = [selectedStiffness, selectedPressure, selectedResistance].filter(Boolean);
@@ -12,7 +20,7 @@ const createSimulateFunction = (selectedStiffness, selectedPressure, selectedRes
       const key = values.join('');
       // const videoId = 'dQw4w9WgXcQ'; // Replace this with your own logic
       const videoId = videoLookupTable[key];
-      const embeddedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1`;
+      const embeddedUrl = `${YOUTUBE_URL}/${videoId}?autoplay=1&fs=1`;
       window.open(embeddedUrl, '_blank');
     } else {
       alert('Please select a correct value from the slider!');
