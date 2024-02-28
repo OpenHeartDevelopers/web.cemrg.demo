@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import video_heart from './motion_pvloop.mp4';
 
 const MainPage = () => {
   const buttonStyle = {
@@ -37,10 +38,15 @@ const MainPage = () => {
       {/* Video Container */}
       <div style={videoContainerStyle}>
         <video width="600" height="400" controls autoPlay loop>
-          <source src="motion_pvloop.mp4" type="video/mp4" />
+          <source src={video_heart} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
+
+
+{/* <img src={image} alt="Descriptive text" width="600" height="400" /> */}
+
+
 
       {/* Menu Buttons */}
       <div id="menu">
