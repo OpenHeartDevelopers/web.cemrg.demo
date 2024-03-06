@@ -6,13 +6,13 @@ import video_heart from './motion_pvloop.mp4';
 
 const MainPage = () => {
   const buttonStyle = {
-    padding: '10px 20px',
+    padding: '2vh 4vh',
     fontSize: '56px',
     margin: '5px',
-    backgroundColor: '#833471', // Blue color as an example
+    backgroundColor: '#833471', 
     color: '#ffffff', // White text
     border: 'none',
-    borderRadius: '5px',
+    borderRadius: '5vh',
     cursor: 'pointer',
     textDecoration: 'none', // Remove underline from links
   };
