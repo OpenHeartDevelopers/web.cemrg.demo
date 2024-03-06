@@ -114,3 +114,7 @@ button {
   border-color: #3498db;
   background-color: #3498db;
 }
+
+.modal-content {
+  padding-top: 50px; /* Adjust this value as needed */
+}

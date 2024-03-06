@@ -6,27 +6,45 @@ import videoLookupTable from './videoLookupTable.json';
 
 const YOUTUBE_URL = 'https://www.youtube.com/embed';
 
-/**
- * Creates a function that plays a video based on selected parameters.
- * @param {number} selectedStiffness - The selected stiffness value.
- * @param {number} selectedPressure - The selected pressure value.
- * @param {number} selectedResistance - The selected resistance value.
- * @returns {Function} The simulate function.
- */
-const createSimulateFunction = (selectedStiffness, selectedPressure, selectedResistance) => {
+const VideoModal = ({ isOpen, onClose, videoUrl }) => {
+  return (
+    isOpen && (
+      <div className="modal-overlay">
+        <div className="modal-content">
+          <button className="close-button" onClick={onClose}>
+            Close
+          </button>
+          <iframe
+            width="560"
+            height="315"
+            src={videoUrl}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title="Embedded Video"
+          ></iframe>
+        </div>
+      </div>
+    )
+  );
+};
+
+const createSimulateFunction = (selectedStiffness, selectedPressure, selectedResistance, setIsModalOpen, setVideoUrl) => {
   return () => {
     const values = [selectedStiffness, selectedPressure, selectedResistance].filter(Boolean);
     if (values.length === 3) {
       const key = values.join('');
-      // const videoId = 'dQw4w9WgXcQ'; // Replace this with your own logic
       const videoId = videoLookupTable[key];
       const embeddedUrl = `${YOUTUBE_URL}/${videoId}?autoplay=1&fs=1`;
-      window.open(embeddedUrl, '_blank');
+      // Set the modal state to open
+      setIsModalOpen(true);
+      // Set the video URL to state if you need it in the modal
+      setVideoUrl(embeddedUrl);
     } else {
       alert('Please select a correct value from the slider!');
     }
   };
 };
+
 export const Level1 = () => {
   const [selectedStiffness, setSelectedStiffness] = useState('');
   const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
@@ -49,7 +67,10 @@ export const Level1 = () => {
     }
   };
 
-  const simulate = createSimulateFunction(selectedStiffness, '0', '0');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [videoUrl, setVideoUrl] = useState('');
+
+  const simulate = createSimulateFunction(selectedStiffness, '0', '0', setIsModalOpen, setVideoUrl);
 
   return (
     <div className="level-container">
@@ -73,9 +94,15 @@ export const Level1 = () => {
       <button className="simulate-button" onClick={simulate} disabled={isSimulateDisabled}>
         Simulate!
       </button>
+
+      {/* Video Modal */}
+      <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} videoUrl={videoUrl} />
     </div>
   );
 };
+
+// Repeat the same pattern for Level2 and Level3 components
+
 
 export const Level2 = () => {
   const [selectedStiffness, setSelectedStiffness] = useState('');
