@@ -3,25 +3,47 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './styles.css';
 import videoLookupTable from './videoLookupTable.json';
+import imageSrc from './images/comparison_cycle_97_cycle_0.png'; 
 
 const YOUTUBE_URL = 'https://www.youtube.com/embed';
 
+
 const VideoModal = ({ isOpen, onClose, videoUrl }) => {
+  const [showImage, setShowImage] = useState(false);
+
+  useEffect(() => {
+    // Reset showImage state when modal is opened
+    if (isOpen) {
+      setShowImage(false);
+    }
+  }, [isOpen]);
+
+  const handleVideoClose = () => {
+    setShowImage(true);
+  
+  };
+  
+
   return (
     isOpen && (
       <div className="modal-overlay">
         <div className="modal-content">
-          <button className="close-button" onClick={onClose}>
-            Close
+          <button className="close-button" onClick={handleVideoClose}>
+            Show PV loop comparison
           </button>
-          <iframe
-            width="560"
-            height="315"
-            src={videoUrl}
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            title="Embedded Video"
-          ></iframe>
+          {showImage ? (
+            <img src={imageSrc} alt='' height="500" />
+          ) : (
+            <iframe
+              width="560"
+              height="315"
+              src={`${videoUrl}`}
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title="Embedded Video"
+              loop
+            ></iframe>
+          )}
         </div>
       </div>
     )
@@ -34,7 +56,7 @@ const createSimulateFunction = (selectedStiffness, selectedPressure, selectedRes
     if (values.length === 3) {
       const key = values.join('');
       const videoId = videoLookupTable[key];
-      const embeddedUrl = `${YOUTUBE_URL}/${videoId}?autoplay=1&fs=1`;
+      const embeddedUrl = `${YOUTUBE_URL}/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
       // Set the modal state to open
       setIsModalOpen(true);
       // Set the video URL to state if you need it in the modal
