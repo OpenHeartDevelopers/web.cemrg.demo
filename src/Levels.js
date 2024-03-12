@@ -190,7 +190,6 @@ export const Level1 = () => {
   );
 };
 
-export default VideoModal;
 // Repeat the same pattern for Level2 and Level3 components
 
 
@@ -198,7 +197,12 @@ export const Level2 = () => {
   const [selectedStiffness, setSelectedStiffness] = useState('');
   const [selectedPressure, setSelectedPressure] = useState('');
   const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [videoUrl, setVideoUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [showComparisonButton, setShowComparisonButton] = useState(true);
+  const navigate = useNavigate(); // Add this line to get the navigate function
+
 
   useEffect(() => {
     // Check if any slider has the value "" after the Simulate button activation
@@ -221,7 +225,27 @@ export const Level2 = () => {
     }
   };
 
-  const simulate = createSimulateFunction(selectedStiffness, selectedPressure, '0');
+  const simulate = createSimulateFunction(
+    selectedStiffness, 
+    selectedPressure, 
+    '0',
+    setIsModalOpen,
+    setVideoUrl,
+    setImageUrl,
+    () => setShowComparisonButton(false) // Set showComparisonButton to false explicitly
+  );
+
+  const handleBackToMainPage = () => {
+    // Use the navigate function to go back to the main page
+    navigate('/');
+  };
+
+  const handleChooseAnotherValue = () => {
+    // Implement logic to reset the modal state and choose another slider value
+    console.log('Choose another value logic');
+    setIsModalOpen(false);
+    setShowComparisonButton(true);
+  };
 
   return (
     <div className="level-container">
@@ -260,15 +284,34 @@ export const Level2 = () => {
       <button className="simulate-button" onClick={simulate} disabled={isSimulateDisabled}>
         Simulate!
       </button>
+ {/* Video Modal */}
+  <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} videoUrl={videoUrl} imageUrl={imageUrl} isMainPageModal={false} />
+
+      {/* Back to Main Page and Choose Another Value buttons */}
+      {isModalOpen && showComparisonButton && (
+        <div className="modal-buttons">
+          <button onClick={handleBackToMainPage}>Back to Main Page</button>
+          <button onClick={handleChooseAnotherValue}>Choose Another Value</button>
+        </div>
+      )}
     </div>
   );
 };
+
+// export default VideoModal;
+// Repeat the same pattern for Level2 and Level3 components
 
 export const Level3 = () => {
   const [selectedStiffness, setSelectedStiffness] = useState('');
   const [selectedPressure, setSelectedPressure] = useState('');
   const [selectedResistance, setSelectedResistance] = useState('');
   const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [videoUrl, setVideoUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [showComparisonButton, setShowComparisonButton] = useState(true);
+  const navigate = useNavigate(); // Add this line to get the navigate function
+
 
   useEffect(() => {
     // Check if any slider has the value "" after the Simulate button activation
@@ -294,7 +337,28 @@ export const Level3 = () => {
     }
   };
 
-  const simulate = createSimulateFunction(selectedStiffness, selectedPressure, selectedResistance);
+  const simulate = createSimulateFunction(
+    selectedStiffness, 
+    selectedPressure, 
+    selectedResistance,
+    setIsModalOpen,
+    setVideoUrl,
+    setImageUrl,
+    () => setShowComparisonButton(false) // Set showComparisonButton to false explicitly
+    );
+
+
+  const handleBackToMainPage = () => {
+    // Use the navigate function to go back to the main page
+    navigate('/');
+  };
+
+  const handleChooseAnotherValue = () => {
+    // Implement logic to reset the modal state and choose another slider value
+    console.log('Choose another value logic');
+    setIsModalOpen(false);
+    setShowComparisonButton(true);
+  };
 
   return (
     <div className="level-container">
@@ -348,6 +412,18 @@ export const Level3 = () => {
       <button className="simulate-button" onClick={simulate} disabled={isSimulateDisabled}>
         Simulate!
       </button>
+ {/* Video Modal */}
+  <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} videoUrl={videoUrl} imageUrl={imageUrl} isMainPageModal={false} />
+
+      {/* Back to Main Page and Choose Another Value buttons */}
+      {isModalOpen && showComparisonButton && (
+        <div className="modal-buttons">
+          <button onClick={handleBackToMainPage}>Back to Main Page</button>
+          <button onClick={handleChooseAnotherValue}>Choose Another Value</button>
+        </div>
+      )}
     </div>
   );
 };
+
+export default VideoModal;
