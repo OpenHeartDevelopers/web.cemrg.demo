@@ -4,23 +4,50 @@ import 'rc-slider/assets/index.css';
 import './styles.css';
 import videoLookupTable from './videoLookupTable.json';
 import imageSrc from './images/comparison_cycle_97_cycle_0.png'; 
+import { useNavigate } from 'react-router-dom';
+
 
 const YOUTUBE_URL = 'https://www.youtube.com/embed';
 
 
-const VideoModal = ({ isOpen, onClose, videoUrl }) => {
+const VideoModal = ({ isOpen, onClose, videoUrl, isMainPageModal }) => {
   const [showImage, setShowImage] = useState(false);
+  const [videoClosed, setVideoClosed] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Reset showImage state when modal is opened
     if (isOpen) {
       setShowImage(false);
+      setVideoClosed(false);
     }
   }, [isOpen]);
 
   const handleVideoClose = () => {
     setShowImage(true);
-  
+    setVideoClosed(true);  
+  };
+
+
+  const handleTryAgain = () => {
+    // Reset the modal state to its initial state
+    setShowImage(false);
+    setVideoClosed(false);
+    onClose();
+  };
+
+  const handleBackToMainPage = () => {
+    // Check if it's a modal in the main page
+    if (isMainPageModal) {
+      // Implement logic to go back to the main page
+      navigate('/'); // Assuming '/' is the route for the main page
+    } else {
+      // Reset the modal state and choose another slider value
+      console.log('Choose another value logic');
+      setShowImage(false);
+      setVideoClosed(false);
+      onClose();
+    }
   };
   
 
@@ -70,6 +97,10 @@ const createSimulateFunction = (selectedStiffness, selectedPressure, selectedRes
 export const Level1 = () => {
   const [selectedStiffness, setSelectedStiffness] = useState('');
   const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [videoUrl, setVideoUrl] = useState('');
+  const [showComparisonButton, setShowComparisonButton] = useState(true);
+  const navigate = useNavigate(); // Add this line to get the navigate function
 
   useEffect(() => {
     // Check if the slider has the value "" after the Simulate button activation
@@ -89,10 +120,26 @@ export const Level1 = () => {
     }
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [videoUrl, setVideoUrl] = useState('');
+  const simulate = createSimulateFunction(
+    selectedStiffness,
+    '0',
+    '0',
+    setIsModalOpen,
+    setVideoUrl,
+    () => setShowComparisonButton(false) // Set showComparisonButton to false explicitly
+  );
 
-  const simulate = createSimulateFunction(selectedStiffness, '0', '0', setIsModalOpen, setVideoUrl);
+  const handleBackToMainPage = () => {
+    // Use the navigate function to go back to the main page
+    navigate('/');
+  };
+
+  const handleChooseAnotherValue = () => {
+    // Implement logic to reset the modal state and choose another slider value
+    console.log('Choose another value logic');
+    setIsModalOpen(false);
+    setShowComparisonButton(true);
+  };
 
   return (
     <div className="level-container">
@@ -117,12 +164,21 @@ export const Level1 = () => {
         Simulate!
       </button>
 
-      {/* Video Modal */}
-      <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} videoUrl={videoUrl} />
+ {/* Video Modal */}
+  <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} videoUrl={videoUrl} isMainPageModal={false} />
+
+      {/* Back to Main Page and Choose Another Value buttons */}
+      {isModalOpen && showComparisonButton && (
+        <div className="modal-buttons">
+          <button onClick={handleBackToMainPage}>Back to Main Page</button>
+          <button onClick={handleChooseAnotherValue}>Choose Another Value</button>
+        </div>
+      )}
     </div>
   );
 };
 
+export default VideoModal;
 // Repeat the same pattern for Level2 and Level3 components
 
 
