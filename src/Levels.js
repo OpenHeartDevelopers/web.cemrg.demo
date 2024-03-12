@@ -12,43 +12,43 @@ const YOUTUBE_URL = 'https://www.youtube.com/embed';
 
 const VideoModal = ({ isOpen, onClose, videoUrl, isMainPageModal }) => {
   const [showImage, setShowImage] = useState(false);
-  const [videoClosed, setVideoClosed] = useState(false);
-  const navigate = useNavigate();
+  // const [videoClosed, setVideoClosed] = useState(false); // This is the variable causing the warning
+  // const navigate = useNavigate();
 
   useEffect(() => {
     // Reset showImage state when modal is opened
     if (isOpen) {
       setShowImage(false);
-      setVideoClosed(false);
+      // setVideoClosed(false);
     }
   }, [isOpen]);
 
   const handleVideoClose = () => {
     setShowImage(true);
-    setVideoClosed(true);  
+    // setVideoClosed(true);
   };
 
 
-  const handleTryAgain = () => {
-    // Reset the modal state to its initial state
-    setShowImage(false);
-    setVideoClosed(false);
-    onClose();
-  };
+  // const handleTryAgain = () => {
+  //   // Reset the modal state to its initial state
+  //   setShowImage(false);
+  //   // setVideoClosed(false);
+  //   onClose();
+  // };
 
-  const handleBackToMainPage = () => {
-    // Check if it's a modal in the main page
-    if (isMainPageModal) {
-      // Implement logic to go back to the main page
-      navigate('/'); // Assuming '/' is the route for the main page
-    } else {
-      // Reset the modal state and choose another slider value
-      console.log('Choose another value logic');
-      setShowImage(false);
-      setVideoClosed(false);
-      onClose();
-    }
-  };
+  // const handleBackToMainPage = () => {
+  //   // Check if it's a modal in the main page
+  //   if (isMainPageModal) {
+  //     // Implement logic to go back to the main page
+  //     navigate('/'); // Assuming '/' is the route for the main page
+  //   } else {
+  //     // Reset the modal state and choose another slider value
+  //     console.log('Choose another value logic');
+  //     setShowImage(false);
+  //     // setVideoClosed(false);
+  //     onClose();
+  //   }
+  // };
   
 
   return (
