@@ -3,14 +3,18 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './styles.css';
 import videoLookupTable from './videoLookupTable.json';
-import imageSrc from './images/comparison_cycle_97_cycle_0.png'; 
+import imageLookupTable from './imageLookupTable.json';
+// import imageSrc from './images/comparison_cycle_97_cycle_0.png'; 
 import { useNavigate } from 'react-router-dom';
 
 
 const YOUTUBE_URL = 'https://www.youtube.com/embed';
+const GITHUB_URL = 'https://github.com/OpenHeartDevelopers/web.cemrg.demo/blob/main/src/images/';
 
 
-const VideoModal = ({ isOpen, onClose, videoUrl, isMainPageModal }) => {
+
+
+const VideoModal = ({ isOpen, onClose, videoUrl, imageUrl, isMainPageModal}) => {
   const [showImage, setShowImage] = useState(false);
   // const [videoClosed, setVideoClosed] = useState(false); // This is the variable causing the warning
   // const navigate = useNavigate();
@@ -49,7 +53,6 @@ const VideoModal = ({ isOpen, onClose, videoUrl, isMainPageModal }) => {
   //     onClose();
   //   }
   // };
-  
 
   return (
     isOpen && (
@@ -59,7 +62,10 @@ const VideoModal = ({ isOpen, onClose, videoUrl, isMainPageModal }) => {
             Show PV loop comparison
           </button>
           {showImage ? (
-            <img src={imageSrc} alt='' height="500" />
+            <div>
+            <img src={imageUrl} alt='' height="500" />
+            {/* <p>Image URL: {imageUrl}</p> Display the image URL */}
+            </div>
           ) : (
             <iframe
               width="560"
@@ -77,17 +83,21 @@ const VideoModal = ({ isOpen, onClose, videoUrl, isMainPageModal }) => {
   );
 };
 
-const createSimulateFunction = (selectedStiffness, selectedPressure, selectedResistance, setIsModalOpen, setVideoUrl) => {
+const createSimulateFunction = (selectedStiffness, selectedPressure, selectedResistance, setIsModalOpen, setVideoUrl, setImageUrl) => {
   return () => {
     const values = [selectedStiffness, selectedPressure, selectedResistance].filter(Boolean);
     if (values.length === 3) {
       const key = values.join('');
       const videoId = videoLookupTable[key];
+      const imageId = videoLookupTable[key];
       const embeddedUrl = `${YOUTUBE_URL}/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
+      const embeddedUrlimage = `${GITHUB_URL}/${imageId}?raw=true`;
+
       // Set the modal state to open
       setIsModalOpen(true);
       // Set the video URL to state if you need it in the modal
       setVideoUrl(embeddedUrl);
+      setImageUrl(embeddedUrlimage);
     } else {
       alert('Please select a correct value from the slider!');
     }
@@ -99,6 +109,7 @@ export const Level1 = () => {
   const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videoUrl, setVideoUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
   const [showComparisonButton, setShowComparisonButton] = useState(true);
   const navigate = useNavigate(); // Add this line to get the navigate function
 
@@ -126,6 +137,7 @@ export const Level1 = () => {
     '0',
     setIsModalOpen,
     setVideoUrl,
+    setImageUrl,
     () => setShowComparisonButton(false) // Set showComparisonButton to false explicitly
   );
 
@@ -165,7 +177,7 @@ export const Level1 = () => {
       </button>
 
  {/* Video Modal */}
-  <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} videoUrl={videoUrl} isMainPageModal={false} />
+  <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} videoUrl={videoUrl} imageUrl={imageUrl} isMainPageModal={false} />
 
       {/* Back to Main Page and Choose Another Value buttons */}
       {isModalOpen && showComparisonButton && (

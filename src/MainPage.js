@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 // import video_heart from './motion_pvloop.mp4';
 import videoLookupTable from './videoLookupTable.json';
 
+
 const MainPage = () => {
   const buttonStyle = {
     padding: '2vh 4vh',
