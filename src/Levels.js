@@ -89,7 +89,7 @@ const createSimulateFunction = (selectedStiffness, selectedPressure, selectedRes
     if (values.length === 3) {
       const key = values.join('');
       const videoId = videoLookupTable[key];
-      const imageId = videoLookupTable[key];
+      const imageId = imageLookupTable[key];
       const embeddedUrl = `${YOUTUBE_URL}/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
       const embeddedUrlimage = `${GITHUB_URL}/${imageId}?raw=true`;
 
@@ -198,6 +198,7 @@ export const Level2 = () => {
   const [selectedStiffness, setSelectedStiffness] = useState('');
   const [selectedPressure, setSelectedPressure] = useState('');
   const [isSimulateDisabled, setIsSimulateDisabled] = useState(true);
+  
 
   useEffect(() => {
     // Check if any slider has the value "" after the Simulate button activation
