@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import video_heart from './motion_pvloop.mp4';
+// import video_heart from './motion_pvloop.mp4';
+import videoLookupTable from './videoLookupTable.json';
 
 const MainPage = () => {
   const buttonStyle = {
@@ -30,6 +31,10 @@ const MainPage = () => {
     height: '100vh', // Adjust the height as needed
   };
 
+  const videoId = videoLookupTable['100'];
+  const youtubeUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
+
+
   return (
     <div style={contentContainerStyle}>
       {/* Title */}
@@ -37,10 +42,20 @@ const MainPage = () => {
 
       {/* Video Container */}
       <div style={videoContainerStyle}>
-        <video width="600" height="400" controls autoPlay loop>
-          <source src={video_heart} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {/* <video width="600" height="400" controls autoPlay loop> */}
+          {/* <source src={video_heart} type="video/mp4" /> */}
+          <iframe
+          width="600"
+          height="400"
+          src={youtubeUrl}
+          title="YouTube Video"
+          frameBorder="0"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+          autoPlay
+          loop
+        ></iframe>
+        {/* </video> */}
       </div>
 
 
