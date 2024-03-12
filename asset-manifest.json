@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/web.cemrg.demo/static/css/main.436b2d18.css",
-    "main.js": "/web.cemrg.demo/static/js/main.f3e2dda6.js",
+    "main.js": "/web.cemrg.demo/static/js/main.1afb8a18.js",
     "static/js/787.5fe5ad37.chunk.js": "/web.cemrg.demo/static/js/787.5fe5ad37.chunk.js",
-    "static/media/comparison_cycle_97_cycle_0.png": "/web.cemrg.demo/static/media/comparison_cycle_97_cycle_0.542f1526b1e099454b78.png",
     "index.html": "/web.cemrg.demo/index.html",
     "main.436b2d18.css.map": "/web.cemrg.demo/static/css/main.436b2d18.css.map",
-    "main.f3e2dda6.js.map": "/web.cemrg.demo/static/js/main.f3e2dda6.js.map",
+    "main.1afb8a18.js.map": "/web.cemrg.demo/static/js/main.1afb8a18.js.map",
     "787.5fe5ad37.chunk.js.map": "/web.cemrg.demo/static/js/787.5fe5ad37.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.436b2d18.css",
-    "static/js/main.f3e2dda6.js"
+    "static/js/main.1afb8a18.js"
   ]
 }
