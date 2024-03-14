@@ -214,10 +214,10 @@ export const Level2 = () => {
 
   const handleSliderChange = (row, value) => {
     switch (row) {
-      case 'stiffness':
+      case 'bulk stiffness':
         setSelectedStiffness(value);
         break;
-      case 'pressure':
+      case 'endocardial pressure':
         setSelectedPressure(value);
         break;
       default:
@@ -258,9 +258,9 @@ export const Level2 = () => {
             min={0}
             max={3}
             step={1}
-            marks={{ 0: '', 1: '1', 2: '2', 3: '3' }}
+            marks={{ 0: '', 1: 'soft', 2: 'medium', 3: 'stiff' }}
             value={selectedStiffness}
-            onChange={(value) => handleSliderChange('stiffness', value)}
+            onChange={(value) => handleSliderChange('bulk stiffness', value)}
           />
         </div>
       </div>
@@ -273,9 +273,9 @@ export const Level2 = () => {
             min={0}
             max={3}
             step={1}
-            marks={{ 0: '', 1: '1', 2: '2', 3: '3' }}
+            marks={{ 0: '', 1: 'low', 2: 'medium', 3: 'high' }}
             value={selectedPressure}
-            onChange={(value) => handleSliderChange('pressure', value)}
+            onChange={(value) => handleSliderChange('endocardial pressure', value)}
           />
         </div>
       </div>
@@ -323,13 +323,13 @@ export const Level3 = () => {
 
   const handleSliderChange = (row, value) => {
     switch (row) {
-      case 'stiffness':
+      case 'bulk stiffness (kPa)':
         setSelectedStiffness(value);
         break;
-      case 'pressure':
+      case 'endocardial pressure (mmHg)':
         setSelectedPressure(value);
         break;
-      case 'resistance':
+      case 'systemic resistance':
         setSelectedResistance(value);
         break;
       default:
@@ -371,9 +371,9 @@ export const Level3 = () => {
             min={0}
             max={5}
             step={1}
-            marks={{ 0: '', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5' }}
+            marks={{ 0: '', 1: '1.29', 2: '1.39', 3: '1.66', 4: '1.70', 5: '2.05' }}
             value={selectedStiffness}
-            onChange={(value) => handleSliderChange('stiffness', value)}
+            onChange={(value) => handleSliderChange('bulk stiffness (kPa)', value)}
           />
         </div>
       </div>
@@ -386,9 +386,9 @@ export const Level3 = () => {
             min={0}
             max={5}
             step={1}
-            marks={{ 0: '', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5' }}
+            marks={{ 0: '', 1: '4.73', 2: '5.08', 3: '5.16', 4: '5.94', 5: '6.06' }}
             value={selectedPressure}
-            onChange={(value) => handleSliderChange('pressure', value)}
+            onChange={(value) => handleSliderChange('endocardial pressure (mmHg)', value)}
           />
         </div>
       </div>
@@ -401,9 +401,9 @@ export const Level3 = () => {
             min={0}
             max={5}
             step={1}
-            marks={{ 0: '', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5' }}
+            marks={{ 0: '', 1: '1.55', 2: '1.67', 3: '1.73', 4: '1.97', 5: '2.05' }}
             value={selectedResistance}
-            onChange={(value) => handleSliderChange('resistance', value)}
+            onChange={(value) => handleSliderChange('systemic resistance', value)}
           />
         </div>
       </div>
