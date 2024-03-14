@@ -9,20 +9,24 @@ import videoLookupTable from './videoLookupTable.json';
 const MainPage = () => {
   const buttonStyle = {
     padding: '2vh 4vh',
-    fontSize: '56px',
+    fontSize: '4vw', // Using viewport width as font size
     margin: '5px',
-    backgroundColor: '#833471', 
+    backgroundColor: '#a3498f', 
     color: '#ffffff', // White text
     border: 'none',
     borderRadius: '5vh',
     cursor: 'pointer',
     textDecoration: 'none', // Remove underline from links
   };
+  
 
   const videoContainerStyle = {
     textAlign: 'center',
     margin: '20px 0',
+    // width: '60vw', // Set width relative to viewport width
+    // height: '45vw', // Set height relative to viewport width
   };
+  
 
   const contentContainerStyle = {
     display: 'flex',
@@ -39,7 +43,7 @@ const MainPage = () => {
   return (
     <div style={contentContainerStyle}>
       {/* Title */}
-      <h1 style={{ textAlign: 'center', fontSize: '66px', fontFamily: 'Arial' }}>Can you match this heart?</h1>
+      <h1 style={{ textAlign: 'center', fontSize: '66px', fontFamily: 'Arial' }}>Can you match <span style={{ color: '#BA2929' }}>this</span> heart?</h1>
 
       {/* Video Container */}
       <div style={videoContainerStyle}>
