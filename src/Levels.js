@@ -16,55 +16,33 @@ const GITHUB_URL = 'https://github.com/OpenHeartDevelopers/web.cemrg.demo/blob/m
 
 const VideoModal = ({ isOpen, onClose, videoUrl, imageUrl, isMainPageModal}) => {
   const [showImage, setShowImage] = useState(false);
-  // const [videoClosed, setVideoClosed] = useState(false); // This is the variable causing the warning
-  // const navigate = useNavigate();
+
 
   useEffect(() => {
     // Reset showImage state when modal is opened
     if (isOpen) {
       setShowImage(false);
-      // setVideoClosed(false);
     }
   }, [isOpen]);
 
   const handleVideoClose = () => {
     setShowImage(true);
-    // setVideoClosed(true);
   };
 
 
-  // const handleTryAgain = () => {
-  //   // Reset the modal state to its initial state
-  //   setShowImage(false);
-  //   // setVideoClosed(false);
-  //   onClose();
-  // };
-
-  // const handleBackToMainPage = () => {
-  //   // Check if it's a modal in the main page
-  //   if (isMainPageModal) {
-  //     // Implement logic to go back to the main page
-  //     navigate('/'); // Assuming '/' is the route for the main page
-  //   } else {
-  //     // Reset the modal state and choose another slider value
-  //     console.log('Choose another value logic');
-  //     setShowImage(false);
-  //     // setVideoClosed(false);
-  //     onClose();
-  //   }
-  // };
 
   return (
     isOpen && (
       <div className="modal-overlay">
         <div className="modal-content">
-          <button className="close-button" onClick={handleVideoClose}>
-            Show PV loop comparison
-          </button>
+          {!showImage && (
+            <button className="close-button" onClick={handleVideoClose}>
+              Show PV loop comparison
+            </button>
+          )}
           {showImage ? (
             <div>
-            <img src={imageUrl} alt='' height="500" />
-            {/* <p>Image URL: {imageUrl}</p> Display the image URL */}
+              <img src={imageUrl} alt='' height="500" />
             </div>
           ) : (
             <iframe
@@ -78,6 +56,12 @@ const VideoModal = ({ isOpen, onClose, videoUrl, imageUrl, isMainPageModal}) => 
             ></iframe>
           )}
         </div>
+        {/* {showImage && (
+          <div className="modal-buttons">
+            <button onClick={handleBackToMainPage}>Back to Main Page</button>
+            <button onClick={handleChooseAnotherValue}>Choose Another Value</button>
+          </div>
+        )} */}
       </div>
     )
   );
