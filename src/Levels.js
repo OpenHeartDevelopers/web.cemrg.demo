@@ -11,7 +11,11 @@ import { useNavigate } from 'react-router-dom';
 const YOUTUBE_URL = 'https://www.youtube.com/embed';
 const GITHUB_URL = 'https://github.com/OpenHeartDevelopers/web.cemrg.demo/blob/main/src/images/';
 
-
+const ButtonColors = {
+  SIMULATE: 'button-simulate',
+  BACK: 'button-back',
+  CHOOSE_ANOTHER: 'button-choose-another',
+};
 
 
 const VideoModal = ({ isOpen, onClose, videoUrl, imageUrl, isMainPageModal}) => {
@@ -310,7 +314,7 @@ export const Level3 = () => {
       case 'bulk stiffness (kPa)':
         setSelectedStiffness(value);
         break;
-      case 'endocardial pressure (mmHg)':
+      case 'pressure':
         setSelectedPressure(value);
         break;
       case 'systemic resistance':
@@ -372,7 +376,7 @@ export const Level3 = () => {
             step={1}
             marks={{ 0: '', 1: '4.73', 2: '5.08', 3: '5.16', 4: '5.94', 5: '6.06' }}
             value={selectedPressure}
-            onChange={(value) => handleSliderChange('Endocardial pressure (mmHg)', value)}
+            onChange={(value) => handleSliderChange('pressure', value)}
           />
         </div>
       </div>
