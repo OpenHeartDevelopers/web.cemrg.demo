@@ -107,7 +107,7 @@ export const Level1 = () => {
 
   const handleSliderChange = (row, value) => {
     switch (row) {
-      case 'test':
+      case 'stiffness':
         setSelectedStiffness(value);
         break;
       default:
@@ -142,7 +142,7 @@ export const Level1 = () => {
       <h2>Level 1</h2>
       {/* Row 1: Stiffness */}
       <div className="slider-row">
-        <div className="slider-label">Stiffness</div>
+        <div className="slider-label">🧱 Stiffness</div>
         <div className="slider-wrapper">
           <Slider
             min={0}
@@ -150,7 +150,7 @@ export const Level1 = () => {
             step={1}
             marks={{ 0: '', 1: 'Soft', 2: 'Medium', 3: 'Stiff' }}
             value={selectedStiffness}
-            onChange={(value) => handleSliderChange('test', value)}
+            onChange={(value) => handleSliderChange('stiffness', value)}
           />
         </div>
       </div>
@@ -236,7 +236,7 @@ export const Level2 = () => {
       <h2>Level 2</h2>
       {/* Row 1: Stiffness */}
       <div className="slider-row">
-        <div className="slider-label">Stiffness</div>
+        <div className="slider-label">🧱 Bulk stiffness</div>
         <div className="slider-wrapper">
           <Slider
             min={0}
@@ -251,7 +251,7 @@ export const Level2 = () => {
 
       {/* Row 2: Pressure */}
       <div className="slider-row">
-        <div className="slider-label">Pressure</div>
+        <div className="slider-label">🎈 Endocardial pressure</div>
         <div className="slider-wrapper">
           <Slider
             min={0}
@@ -349,7 +349,7 @@ export const Level3 = () => {
       <h2>Level 3</h2>
       {/* Row 1: Stiffness */}
       <div className="slider-row">
-        <div className="slider-label">Stiffness</div>
+        <div className="slider-label">🧱 Bulk stiffness (kPa)</div>
         <div className="slider-wrapper">
           <Slider
             min={0}
@@ -364,7 +364,7 @@ export const Level3 = () => {
 
       {/* Row 2: Pressure */}
       <div className="slider-row">
-        <div className="slider-label">Pressure</div>
+        <div className="slider-label">🎈 Endocardial pressure (mmHg)</div>
         <div className="slider-wrapper">
           <Slider
             min={0}
@@ -372,14 +372,14 @@ export const Level3 = () => {
             step={1}
             marks={{ 0: '', 1: '4.73', 2: '5.08', 3: '5.16', 4: '5.94', 5: '6.06' }}
             value={selectedPressure}
-            onChange={(value) => handleSliderChange('endocardial pressure (mmHg)', value)}
+            onChange={(value) => handleSliderChange('Endocardial pressure (mmHg)', value)}
           />
         </div>
       </div>
 
       {/* Row 3: Valve Resistance */}
       <div className="slider-row">
-        <div className="slider-label">Valve Resistance</div>
+        <div className="slider-label">⛔ Systemic resistance</div>
         <div className="slider-wrapper">
           <Slider
             min={0}
