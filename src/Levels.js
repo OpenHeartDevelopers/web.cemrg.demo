@@ -107,7 +107,7 @@ export const Level1 = () => {
 
   const handleSliderChange = (row, value) => {
     switch (row) {
-      case 'stiffness':
+      case 'test':
         setSelectedStiffness(value);
         break;
       default:
@@ -150,7 +150,7 @@ export const Level1 = () => {
             step={1}
             marks={{ 0: '', 1: 'Soft', 2: 'Medium', 3: 'Stiff' }}
             value={selectedStiffness}
-            onChange={(value) => handleSliderChange('stiffness', value)}
+            onChange={(value) => handleSliderChange('test', value)}
           />
         </div>
       </div>
