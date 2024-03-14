@@ -32,6 +32,10 @@ npm start
 
 The game should now be running in your default web browser.
 
+# Website
+
+https://openheartdevelopers.github.io/web.cemrg.demo/
+
 # Contributing to the Calibration Game
 
 To contribute to the Calibration Game, follow these steps:
