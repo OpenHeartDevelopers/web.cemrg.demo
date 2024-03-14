@@ -11,11 +11,11 @@ import { useNavigate } from 'react-router-dom';
 const YOUTUBE_URL = 'https://www.youtube.com/embed';
 const GITHUB_URL = 'https://github.com/OpenHeartDevelopers/web.cemrg.demo/blob/main/src/images/';
 
-const ButtonColors = {
-  SIMULATE: 'button-simulate',
-  BACK: 'button-back',
-  CHOOSE_ANOTHER: 'button-choose-another',
-};
+// const ButtonColors = {
+//   SIMULATE: 'button-simulate',
+//   BACK: 'button-back',
+//   CHOOSE_ANOTHER: 'button-choose-another',
+// };
 
 
 const VideoModal = ({ isOpen, onClose, videoUrl, imageUrl, isMainPageModal}) => {
