@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/web.cemrg.demo/static/css/main.b8cd79cc.css",
-    "main.js": "/web.cemrg.demo/static/js/main.38496d2e.js",
+    "main.js": "/web.cemrg.demo/static/js/main.dc8342f9.js",
     "static/js/787.5fe5ad37.chunk.js": "/web.cemrg.demo/static/js/787.5fe5ad37.chunk.js",
     "index.html": "/web.cemrg.demo/index.html",
     "main.b8cd79cc.css.map": "/web.cemrg.demo/static/css/main.b8cd79cc.css.map",
-    "main.38496d2e.js.map": "/web.cemrg.demo/static/js/main.38496d2e.js.map",
+    "main.dc8342f9.js.map": "/web.cemrg.demo/static/js/main.dc8342f9.js.map",
     "787.5fe5ad37.chunk.js.map": "/web.cemrg.demo/static/js/787.5fe5ad37.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b8cd79cc.css",
-    "static/js/main.38496d2e.js"
+    "static/js/main.dc8342f9.js"
   ]
 }
