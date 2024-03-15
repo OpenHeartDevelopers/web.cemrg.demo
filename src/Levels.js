@@ -146,13 +146,13 @@ export const Level1 = () => {
       <h2>Level 1</h2>
       {/* Row 1: Stiffness */}
       <div className="slider-row">
-        <div className="slider-label">🧱 Stiffness</div>
+        <div className="slider-label">🧱 stiffness</div>
         <div className="slider-wrapper">
           <Slider
             min={0}
             max={3}
             step={1}
-            marks={{ 0: '', 1: 'Soft', 2: 'Medium', 3: 'Stiff' }}
+            marks={{ 0: '', 1: 'soft', 2: 'medium', 3: 'stiff' }}
             value={selectedStiffness}
             onChange={(value) => handleSliderChange('stiffness', value)}
           />
